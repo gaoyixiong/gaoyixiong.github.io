@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>1st Universal Cup, Stage 4: Ukraine - Colin&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Colin&#039;s Blog"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Colin&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="Links: 补题链接, 题面,  官方题解 Summary: 思维题很多，证明非常理性愉悦，赛中要大胆猜结论"><meta property="og:type" content="blog"><meta property="og:title" content="1st Universal Cup, Stage 4: Ukraine"><meta property="og:url" content="https://blog.gyx.me/contest/ucup/1/4/"><meta property="og:site_name" content="Colin&#039;s Blog"><meta property="og:description" content="Links: 补题链接, 题面,  官方题解 Summary: 思维题很多，证明非常理性愉悦，赛中要大胆猜结论"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://blog.gyx.me/img/og_image.png"><meta property="article:published_time" content="2023-11-29T16:00:00.000Z"><meta property="article:modified_time" content="2024-01-17T06:16:43.222Z"><meta property="article:author" content="Yixiong Gao"><meta property="article:tag" content="Counting"><meta property="article:tag" content="Bitmasks"><meta property="article:tag" content="Dynamic Programming"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://blog.gyx.me/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.gyx.me/contest/ucup/1/4/"},"headline":"1st Universal Cup, Stage 4: Ukraine","image":["https://blog.gyx.me/img/og_image.png"],"datePublished":"2023-11-29T16:00:00.000Z","dateModified":"2024-01-17T06:16:43.222Z","author":{"@type":"Person","name":"Yixiong Gao"},"publisher":{"@type":"Organization","name":"Colin's Blog","logo":{"@type":"ImageObject","url":{"text":"Colin's Blog"}}},"description":"Links: 补题链接, 题面,  官方题解 Summary: 思维题很多，证明非常理性愉悦，赛中要大胆猜结论"}</script><link rel="canonical" href="https://blog.gyx.me/contest/ucup/1/4/"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/monokai-sublime.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">Colin&#039;s Blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-11-29T16:00:00.000Z" title="2023/11/30 00:00:00">2023-11-30</time></span><span class="level-item"><a class="link-muted" href="/categories/Contest/">Contest</a><span> / </span><a class="link-muted" href="/categories/Contest/UCUP/">UCUP</a></span></div></div><h1 class="title is-3 is-size-4-mobile">1st Universal Cup, Stage 4: Ukraine</h1><div class="content"><p>Links: <a target="_blank" rel="noopener" href="https://codeforces.com/gym/104197">补题链接</a>, <a href="/contests/ucup/1/4/statements.pdf">题面</a>,  <a href="/contests/ucup/1/4/tutorial.pdf">官方题解</a></p>
+<p>Summary: 思维题很多，证明非常理性愉悦，赛中要大胆猜结论</p>
+<span id="more"></span>
+
+
+<table>
+<thead>
+<tr>
+<th align="center">ID</th>
+<th align="center">Difficulty (0-5)</th>
+<th align="center">Topic</th>
+<th align="center">Status</th>
+<th align="center">Code</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">A</td>
+<td align="center">0</td>
+<td align="center">Greedy</td>
+<td align="center">Solved</td>
+<td align="center"><a href="/contests/ucup/1/4/code/A.cpp">A.cpp</a></td>
+</tr>
+<tr>
+<td align="center">B</td>
+<td align="center">3</td>
+<td align="center">Counting</td>
+<td align="center">Solved</td>
+<td align="center"><a href="/contests/ucup/1/4/code/B.cpp">B.cpp</a></td>
+</tr>
+<tr>
+<td align="center">C</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">D</td>
+<td align="center">1</td>
+<td align="center">Constructive Algorithms, Shortest Path</td>
+<td align="center">Solved</td>
+<td align="center"><a href="/contests/ucup/1/4/code/D.cpp">D.cpp</a></td>
+</tr>
+<tr>
+<td align="center">E</td>
+<td align="center">1</td>
+<td align="center">Constructive Algorithms</td>
+<td align="center">Solved</td>
+<td align="center"><a href="/contests/ucup/1/4/code/E.cpp">E.cpp</a></td>
+</tr>
+<tr>
+<td align="center">F</td>
+<td align="center">2</td>
+<td align="center">Constructive Algorithms, Brute Force</td>
+<td align="center">Solved</td>
+<td align="center"><a href="/contests/ucup/1/4/code/F.cpp">F.cpp</a></td>
+</tr>
+<tr>
+<td align="center">G</td>
+<td align="center">4</td>
+<td align="center">Bitmasks, DP</td>
+<td align="center">Upsolved</td>
+<td align="center"><a href="/contests/ucup/1/4/code/G.cpp">G.cpp</a></td>
+</tr>
+<tr>
+<td align="center">H</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">I</td>
+<td align="center">2</td>
+<td align="center">Counting, DP</td>
+<td align="center">Solved</td>
+<td align="center"><a href="/contests/ucup/1/4/code/I.cpp">I.cpp</a></td>
+</tr>
+<tr>
+<td align="center">J</td>
+<td align="center">3</td>
+<td align="center">Inversions</td>
+<td align="center">Solved</td>
+<td align="center"><a href="/contests/ucup/1/4/code/J.cpp">J.cpp</a></td>
+</tr>
+<tr>
+<td align="center">K</td>
+<td align="center">0</td>
+<td align="center">DFS</td>
+<td align="center">Solved</td>
+<td align="center"><a href="/contests/ucup/1/4/code/K.cpp">K.cpp</a></td>
+</tr>
+<tr>
+<td align="center">L</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">M</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">N</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<br>
+
+<h2 id="A-Adjacent-Product-Sum"><a href="#A-Adjacent-Product-Sum" class="headerlink" title="A. Adjacent Product Sum"></a>A. Adjacent Product Sum</h2><blockquote>
+<p>重排一个环形数列，最大化重排后的相邻两数乘积之和。</p>
+</blockquote>
+<p>由排序不等式，感性理解一下应该是大的挨在一起，小的挨在一起。</p>
+<p>所以排序之后左右交替放就行了，复杂度 $O(n\log n)$ 。</p>
+<br>
+
+<h2 id="B-Binary-Arrays-and-Sliding-Sums"><a href="#B-Binary-Arrays-and-Sliding-Sums" class="headerlink" title="*B. Binary Arrays and Sliding Sums"></a>*B. Binary Arrays and Sliding Sums</h2><blockquote>
+<p>给定 $n,k$ , 考虑所有长度为 $n$ 的二进制序列 $a_0,a_2,\dots,a_{n-1}$ :</p>
+<p>令 $f_i&#x3D;\sum_{j&#x3D;0}^{k-1}a_{(i+j)\mod n}$ 得到序列 $f_0,f_1,\dots,f_{n-1}$ ，求有多少个本质不同的 $f$ 。</p>
+<p>$T\ (T\le 10^5)$ 组询问，每次问一对 $n,k\ (2 \le k &lt; n \le 10^6 )$ 。</p>
+</blockquote>
+<p>下述过程中，所有下标均在模 $n$ 意义下。</p>
+<p>有 $a_i-a_{i-k}&#x3D;f_i-f_{i-1}\in[-1,1]$ ，当不为 $0$ 时一定能确定 $a_i$ 和 $a_{i-k}$ 的取值，否则两者可能同为 $0$ 或同为 $1$ 。</p>
+<p>按照间隔为 $k$ 分组，会分成 $g&#x3D;gcd(n,k)$ 个“环”，每个环长为 $n&#x2F;g$ 。</p>
+<ul>
+<li><p>每个环中只要有一个位置能确定（有一个 $f_i-f_{i-1}\neq 0$ ），整个环的取值都能确定。</p>
+</li>
+<li><p>考虑每个环对 $f$ 的贡献，容易发现对于每连续 $k$ 个位置，每个环都恰好占走了 $k&#x2F;g$ 个位置。</p>
+</li>
+</ul>
+<p>因此对于某个 $a$ 数列，我们去考虑和他 $f$ 数组一致（冲突）的数列的特征，按照环考虑：</p>
+<ul>
+<li>对于可以从 $f$ 唯一确定的环，显然这些位置必须和 $a$ 保持一致。</li>
+<li>否则是全 $0$ &#x2F; 全 $1$ 环（称作特殊环），由于每个环对 $f$ 的贡献位置个数一致，所以只要全 $1$ 环的“环个数”一致即可。</li>
+</ul>
+<p>因此我们按 $f$ 划分出等价类：特殊环位置的集合一致（个数+下标），全 $1$ 环的个数一致，非特殊环对应位置完全一致。</p>
+<p>因此对应特征计数：枚举特殊环数 $k$ ，特殊环下标集选法 ${g\choose k}$，全 $1$ 环个数选法 $(k+1)$ ，非特殊环方案数 $(2^{n&#x2F;g}-2)^{g-k}$ 。<br>$$<br>\begin{array}{ll}<br>ans &amp;&#x3D; \sum_{k&#x3D;0}^g(k+1){g\choose k}(2^{n&#x2F;g}-2)^{g-k}\\<br>&amp;&#x3D; \sum_{k&#x3D;0}^g{g\choose k}(2^{n&#x2F;g}-2)^{g-k}+ \sum_{k&#x3D;0}^g k\times \frac{g!}{k!(g-k)!}\times (2^{n&#x2F;g}-2)^{g-k}\\<br>&amp;&#x3D; \sum_{k&#x3D;0}^g{g\choose k}(2^{n&#x2F;g}-2)^{g-k}+ g\sum_{k&#x3D;1}^g {g-1\choose k-1}\times (2^{n&#x2F;g}-2)^{g-k}\\<br>&amp;&#x3D;((2^{n&#x2F;g}-2) + 1)^g + g\times ((2^{n&#x2F;g}-2) + 1)^{g-1}<br>\end{array}<br>$$<br>快速幂计算即可，复杂度 $O(T\log n)$ 。</p>
+<br>
+
+<h2 id="D-Distance-Parities"><a href="#D-Distance-Parities" class="headerlink" title="D. Distance Parities"></a>D. Distance Parities</h2><blockquote>
+<p>一个 $n\ (n\le 500)$ 个点的无向图，给定任意两点最短路奇偶性，构造一个图符合要求。</p>
+</blockquote>
+<p>构造一个图 $G$ ：对于任意两点，给定性质中如果要求是奇数距离就给两点间加一条边，否则不加。</p>
+<p>证明：这个图 $G$ 符合要求 $\Leftrightarrow$ 存在一个图 $G’$ 符合要求。</p>
+<p>左推右显然，证明右推左，若 $G’$ 符合要求，那么对于任意点对 $u,v$ ：</p>
+<ul>
+<li>若距离为奇数，则在 $G$ 中两点距离为 $1$ 符合要求；</li>
+<li>若距离为偶数，则必然存在一个点 $w$ ，在 $G’$ 中到两个点距离为奇数（例如 $u\to v$ 最短路上，除掉 $u,v$ 的第一个点），则在 $G$ 中 $w$ 和两个点都有一条边，因此 $G$ 中两点距离为 $2$ 符合要求。</li>
+</ul>
+<p>因此判断 $G$ 是否合法即可，Floyd-Warshall 复杂度 $O(n^3)$ 。</p>
+<br>
+
+<h2 id="E-Excellent-XOR-Problem"><a href="#E-Excellent-XOR-Problem" class="headerlink" title="E. Excellent XOR Problem"></a>E. Excellent XOR Problem</h2><blockquote>
+<p>长度为 $n\ (n\le 10^5)$ 的数列 $a_i\ (0\le a_i&lt; 2^{30})$ ，将数列划分成多于一段，使得每段异或和两两不同。</p>
+</blockquote>
+<p>如果全部异或和不为 $0$ ，任意切分两段异或和不同。</p>
+<p>否则考虑从左往右第一个不为 $0$ 的数字 $a_x$ ：</p>
+<ul>
+<li>对于某个 $p\in[x+1,n-1]$ ，如果 $[x+1,p]$ 异或和不为 $0$ 也不为 $a_x$ ，那么找到了一种分三段的方法。</li>
+<li>否则，数列中除了 $0$ 以外，是偶数个 $a_x$ ，这种情况一定无解。</li>
+</ul>
+<p>所以找到 $a_x$ 之后扫一遍就可以了，复杂度 $O(n)$ 。</p>
+<br>
+
+<h2 id="F-F-3-Colorable-Graphs"><a href="#F-F-3-Colorable-Graphs" class="headerlink" title="F. F*** 3-Colorable Graphs"></a>F. F*** 3-Colorable Graphs</h2><blockquote>
+<p>给一个连通二分图 $K_{n,m}\ (2\le n,m\le 10^4)$，问最少加多少边使得这个图不能三染色。</p>
+</blockquote>
+<ul>
+<li><p>不加边，二分图可以二染色。</p>
+</li>
+<li><p>加一条边，随便把这条边的一个端点染成第三种颜色就保证了相邻不同，此时可以三染色。</p>
+</li>
+<li><p>加两条边，如果有公共点，把一个公共点染成第三种颜色；否则四个不同的端点如果构成了 $K_4$ ，则需要四染色，否则四个点中至少有一对点没有边相连，把这两个点都染成第三种颜色后，其他维持二分图染色不变，依然可以三染色。</p>
+</li>
+<li><p>加三条边，因为是连通二分图且两侧都有至少两个点，必定存在长度为 $3$ 的链，必能补成 $K_4$ ，需要四染色。</p>
+</li>
+</ul>
+<p>因此如果能加两条边补出 $K_4$ 答案就是 $2$ ，否则答案是 $3$ 。</p>
+<p>因为二分图中不能有奇环，因此唯一的情况是图中存在四元环。</p>
+<p>考虑暴力，枚举左侧点 $u$ ，枚举 $u$ 的邻居 $v$ ，枚举 $v$ 的邻居 $u’$ ，当 $u’\neq u$ 时对 $u’$ 累加计数器。</p>
+<p>当遇到一个 $u’$ 被累计了两次的时候，就找到了答案。否则不存在四元环。</p>
+<p>暴力复杂度是对的，对于每个 $u$ ，每个 $u’$ 只会枚举到 $O(1)$ 次，否则找到答案结束，因此复杂度是 $O(n^2)$ 的。</p>
+<p>当然也可以直接上四元环计数，复杂度 $O(m\sqrt{m})$ 。</p>
+<br>
+
+<h2 id="G-Graph-Problem-With-Small-n"><a href="#G-Graph-Problem-With-Small-n" class="headerlink" title="*G. Graph Problem With Small n"></a>*G. Graph Problem With Small n</h2><blockquote>
+<p>给一个 $n\ (2\le n\le 24)$ 个点的无向图，判断是否任意点对间存在从一个出发另一个结束的哈密顿路径。</p>
+</blockquote>
+<p>设 $dp[S][u][v]&#x3D;0&#x2F;1$ 表示经过的点集为 $S$ ，起点为 $u$ 终点为 $v$ 的路径是否存在，这个dp是 $O(n^32^n)$ 的。</p>
+<p>进一步设 $dp[S][u]$ 表示经过点击为 $S$ ，起点为 $u$ 的可能的终点集合，新 dp 的值相当于之前 dp 的值的状压。</p>
+<p>初始化 $dp[{u}][u] &#x3D; {u}$ ，求 $dp[S][u]$ 时考虑第一步走 $u\to v$ ，那么方程是：<br>$$<br>dp[S][u] &#x3D; \bigcup_{v\in S} dp[S&#x2F;{u}][v]<br>$$</p>
+<p>枚举 $S,u$ 之后枚举 $u$ 邻居 $v$ ，现在复杂度降低到了 $O(n^22^n)$ 。</p>
+<hr>
+<p>换个思路，直接考虑有哪些 $v$ 在 $dp[S][u]$ 中，我们考虑路径的最后一步 $w\to v$ ，需要保证 $w$ 在 $S&#x2F;{v}$ 对应状态的可能终点中（即 $dp[S&#x2F;{v}][u]$ 中），并且 $w$ 和 $v$ 有边相连。</p>
+<p>预处理每个人的邻居集 $N_i$ ，条件等价于 $dp[S&#x2F;{v}][u]$ 和 $N_v$ 有交，即方程是：<br>$$<br>dp[S][u] &#x3D; \bigcup_{dp[S&#x2F;{v}][u]\ \cap\ N_v\neq \emptyset} {v}<br>$$<br>枚举 $S,u,v$ 判断是 $O(1)$ 的，因此这个转移的思路复杂度也是 $O(n^22^n)$ 的。</p>
+<p>这个转移的好处是 $dp[S][u]$ 的值只依赖于 $dp[*][u]$ ，换句话说，可以 $O(n2^n)$ 求出对某个特定 $u$ 的所有 dp 值。</p>
+<p>考虑 $O(n2^n)$ 求出所有的 $dp[*][0]$ ，即从 $0$ 出发的所有可能的集合的可能的终点。</p>
+<p>考虑一条 $u$ 开始 $v$ 结束的哈密顿路径，必定经过 $0$ ，点集可以拆成两段 $S$ 和 $U&#x2F;S \cup {0}$ （互补集合都加上 $0$ ）。</p>
+<p>因此对于 $dp[S][0]$ 中的每个点 $u$ ，都可以和 $dp[U&#x2F;S\cup{0}][u]$ 中的每个点 $v$ 匹配。</p>
+<p>再次使用状压的思路，设 $ans[u]$ 表示 $u$ 出发可能的哈密顿路径终点集合。</p>
+<p>枚举 $S$ ，枚举 $S$ 中的点 $u$ ，令 $ans[u] &#x3D; ans[u] \operatorname{or} dp[U&#x2F;S\cup{0}]$ 即可。</p>
+<p>这样总复杂度神奇的降到了 $O(n2^n)$ ，空间复杂度 $O(2^n)$ 。</p>
+<blockquote>
+<p>由于 1s 需要的计算量达到了 2e8 所以需要比较精细的实现，实测不同的实现方法常数甚至有 5 倍的差距。</p>
+<p>可能的卡常方法：</p>
+<ul>
+<li><p>$S$ 不包含 $0$ 的状态是没有用的，所以可以删去一半的集合，$2^n\to 2^{n-1}$ 卡掉一半的常数。</p>
+</li>
+<li><p>多使用位运算及 <code>__builtin</code> 系列函数加快枚举集合内元素，而不直接 $O(n)$ 枚举：</p>
+<p>  <code>for (int ts = S, v; ts; ts &amp;= ~-ts) v = __builtin_ffs(ts) - 1;</code></p>
+</li>
+</ul>
+</blockquote>
+<br>
+
+<h2 id="I-Increasing-Grid"><a href="#I-Increasing-Grid" class="headerlink" title="I. Increasing Grid"></a>I. Increasing Grid</h2><blockquote>
+<p>一个 $n\times m\ (1\le n\times m\le 2\times 10^5)$ 的矩阵，每个位置的数字在 $1\sim n+m$ 之间。</p>
+<p>现给定一些位置的取值，问其他位置有多少种不同的合法填法，使得每行从左往右递增，每列从上到下递增。</p>
+</blockquote>
+<p>观察发现 $A_{ij}$ 的值只能是 $i+j-1$ 或 $i+j$ ，选了 $i+j-1$ 左上角的所有数字就确定了，否则右下角所有数字都确定了。</p>
+<p>因此所有数字分成两类，一类能推出所有左上角，一类能推出所有右下角，先把冲突无解的情况判掉。</p>
+<p>因此存在一个从左下到右上的分界线，每次向上或向右，计数矩阵填法等价于计数分界线选法。</p>
+<p>处理出来每个位置是必定在左上&#x2F;必定在右下&#x2F;都可以，然后从左下向右上dp分界线方案数，复杂度 $O(n\times m)$ 。</p>
+<p>注意一个位置如果上方必须是边界就不能往右延伸了。</p>
+<br>
+
+<h2 id="J-Jewel-of-Data-Structure-Problems"><a href="#J-Jewel-of-Data-Structure-Problems" class="headerlink" title="*J. Jewel of Data Structure Problems"></a>*J. Jewel of Data Structure Problems</h2><blockquote>
+<p>给定一个排列 $(1\le n,q \le 2\times 10^5)$，支持交换两个位置，查询最长的子序列，其逆序对数为奇数。</p>
+</blockquote>
+<p>结论大杂烩。</p>
+<ol>
+<li><p>整体逆序数为 $0$ 的情况（排列为 $1,2,\dots,n$ ），答案为 $-1$ 。</p>
+</li>
+<li><p>如果整个排列逆序对数为奇数，答案是 $n$ 。</p>
+</li>
+<li><p>否则考虑每个数 $p_i$ 产生的逆序对数 $c_i$ （前面比他大的个数+后面比他小的个数），如果存在一个 $c_i$ 是奇数，删掉对应的 $p_i$ 即可，答案是 $n-1$ 。</p>
+</li>
+<li><p>否则所有 $c_i$ 都是偶数，考虑序列中的任意一个逆序对 $(p_i,p_j)$ ，这个逆序对在 $c_i,c_j$ 中都被考虑了一次，所以把这两个位置删掉，逆序对的减少量一定是奇数，所以答案最差 $n-2$ 。</p>
+</li>
+</ol>
+<p>于是只需要维护：</p>
+<ul>
+<li><p>当前逆序数是否为 $0$ （排列是否为 $1,2,\dots,n$ ）：维护 $p_i\neq i$ 的个数，交换两个操作下可以 $O(1)$ 维护。</p>
+</li>
+<li><p>总逆序数奇偶性：考虑交换 $p_i,p_j$ ，容易发现 $p_k\ (k\in (i,j))$ 参与的逆序对数奇偶性不会发生变化（按值和 $p_i,p_j$ 的关系分三段讨论），而 $p_i,p_j$ 的交换必然导致增加&#x2F;删除了一个由 $p_i,p_j$ 构成的逆序对，因此每次操作总逆序数奇偶性一定改变，即<strong>交换两个元素排列的奇偶性一定改变</strong>。而一个排列可以通过 $n-$ 环数次交换变成 $1,2,\dots,n$ ，所以其逆序对数的奇偶性与 $n-$ 环数相同，初始化复杂度 $O(n)$ 。</p>
+</li>
+<li><p>是否有一个 $c_i$ 为奇数（所有的 $c_i$ 的奇偶性）：考虑 $c_i$ 的计算方法，假设 $i$ 前面比 $p_i$ 大的数字有 $x$ 个，那么 $c_i&#x3D;x+[p_i-1-(i - 1 - x)]&#x3D;2x+p_i-i$ ，所以 $c_i$ 的奇偶性只和 $i,p_i$ 有关，只有交换两个的操作可以 $O(1)$ 维护。</p>
+</li>
+</ul>
+<p>总复杂度 $O(n+q)$ ，不需要任何数据结构，实在优雅。</p>
+<br>
+
+<h2 id="K-King-of-Swapping"><a href="#K-King-of-Swapping" class="headerlink" title="K. King of Swapping"></a>K. King of Swapping</h2><blockquote>
+<p>对于 $n$ 的排列，给定 $m$ 个操作 $a_i,b_i$ 代表如果 $p_{a_i}&gt;p_{b_i}$ 则可以交换这两个数。</p>
+<p>问使用给定的操作任意多次，是否能把任意一个 $n$ 的排列变成任意另一个 $n$ 的排列。</p>
+</blockquote>
+<p>其实是问能否交换任意两个位置（反证即可），把操作看成有向边，也就是要判断图是否强连通。</p>
+<p>判一下原图和反图 $1$ 是否都能到所有点即可（这是整个图强连通的等价命题），复杂度 $O(n)$ 。</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>1st Universal Cup, Stage 4: Ukraine</p><p><a href="https://blog.gyx.me/contest/ucup/1/4/">https://blog.gyx.me/contest/ucup/1/4/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Yixiong Gao</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2023-11-30</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2024-01-17</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/Counting/">Counting</a><a class="link-muted mr-2" rel="tag" href="/tags/Bitmasks/">Bitmasks</a><a class="link-muted mr-2" rel="tag" href="/tags/Dynamic-Programming/">Dynamic Programming</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/contest/icpc/48/hefei/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">The 48th ICPC Asia Hefei Regional Contest</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/summary/minming-fan-club/"><span class="level-item">[Top] Training Records - Minming Fan Club</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><!--!--><div class="column column-right is-4-tablet is-4-desktop is-4-widescreen  order-3"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.gif" alt="Yixiong Gao"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Yixiong Gao</p><p class="is-size-6 is-block">Christian, Student</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Hong Kong SAR, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">4</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">4</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">4</p></a></div></div></nav></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-12-06T16:00:00.000Z">2023-12-07</time></p><p class="title"><a href="/contest/icpc/48/hefei/">The 48th ICPC Asia Hefei Regional Contest</a></p><p class="categories"><a href="/categories/Contest/">Contest</a> / <a href="/categories/Contest/ICPC/">ICPC</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-11-29T16:00:00.000Z">2023-11-30</time></p><p class="title"><a href="/contest/ucup/1/4/">1st Universal Cup, Stage 4: Ukraine</a></p><p class="categories"><a href="/categories/Contest/">Contest</a> / <a href="/categories/Contest/UCUP/">UCUP</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-08-31T16:00:00.000Z">2023-09-01</time></p><p class="title"><a href="/summary/minming-fan-club/">[Top] Training Records - Minming Fan Club</a></p><p class="categories"><a href="/categories/Summary/">Summary</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2018-11-28T16:00:00.000Z">2018-11-29</time></p><p class="title"><a href="/misc/hello-world/">Hello World</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2023/12/"><span class="level-start"><span class="level-item">December 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/11/"><span class="level-start"><span class="level-item">November 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/09/"><span class="level-start"><span class="level-item">September 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/11/"><span class="level-start"><span class="level-item">November 2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">Colin&#039;s Blog</a><p class="is-size-7"><span>&copy; 2024 Yixiong Gao</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Contact Me" href="mailto:yixionggao@outlook.com"><i class="fa-regular fa-envelope"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'folded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
