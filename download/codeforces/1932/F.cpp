@@ -21,15 +21,14 @@ inline int rd() {
 
 int f[N], L[N], cont[N], mx[N];
 
-vector<pii> seg;
-
 inline void work() {
-    seg.clear();
     int n = rd(), m = rd();
     rep(i, 1, n) L[i] = i, cont[i] = 0;
-    rep(i, 1, m) {int l = rd(), r = rd(); seg.eb(r, l); ++cont[l]; --cont[r + 1];}
-    sort(all(seg));
-    for (auto [r, l] : seg) L[r] = min(L[r], l);
+    rep(i, 1, m) {
+        int l = rd(), r = rd(); 
+        L[r] = min(L[r], l); 
+        ++cont[l]; --cont[r + 1];
+    }
     per(i, n - 1, 1) L[i] = min(L[i], L[i + 1]);
     rep(i, 1, n) {
         cont[i] += cont[i - 1];

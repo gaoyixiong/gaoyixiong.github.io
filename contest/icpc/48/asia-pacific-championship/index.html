@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>The 2024 ICPC Asia Pacific Championship - Colin&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Colin&#039;s Blog"><meta name="msapplication-TileImage" content="/img/logo.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Colin&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="补题链接, 题面, 官方题解 题挺好的，猜结论还是要大胆一点，坚持训练！"><meta property="og:type" content="blog"><meta property="og:title" content="The 2024 ICPC Asia Pacific Championship"><meta property="og:url" content="https://blog.gyx.me/contest/icpc/48/asia-pacific-championship/"><meta property="og:site_name" content="Colin&#039;s Blog"><meta property="og:description" content="补题链接, 题面, 官方题解 题挺好的，猜结论还是要大胆一点，坚持训练！"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://blog.gyx.me/img/og_image.png"><meta property="article:published_time" content="2024-03-02T16:00:00.000Z"><meta property="article:modified_time" content="2024-03-07T04:37:03.310Z"><meta property="article:author" content="Yixiong Gao"><meta property="article:tag" content="Segment Tree"><meta property="article:tag" content="Shortest Path"><meta property="article:tag" content="Pigeonhole Principle"><meta property="article:tag" content="DSU on Tree"><meta property="article:tag" content="Monotonic Queue"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://blog.gyx.me/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.gyx.me/contest/icpc/48/asia-pacific-championship/"},"headline":"The 2024 ICPC Asia Pacific Championship","image":["https://blog.gyx.me/img/og_image.png"],"datePublished":"2024-03-02T16:00:00.000Z","dateModified":"2024-03-07T04:37:03.310Z","author":{"@type":"Person","name":"Yixiong Gao"},"publisher":{"@type":"Organization","name":"Colin's Blog","logo":{"@type":"ImageObject","url":{"text":"Colin's Blog"}}},"description":"补题链接, 题面, 官方题解 题挺好的，猜结论还是要大胆一点，坚持训练！"}</script><link rel="canonical" href="https://blog.gyx.me/contest/icpc/48/asia-pacific-championship/"><link rel="icon" href="/img/logo.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/monokai-sublime.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">Colin&#039;s Blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-03-02T16:00:00.000Z" title="2024/3/3 00:00:00">2024-03-03</time></span><span class="level-item"><a class="link-muted" href="/categories/Contest/">Contest</a><span> / </span><a class="link-muted" href="/categories/Contest/ICPC/">ICPC</a></span></div></div><h1 class="title is-3 is-size-4-mobile">The 2024 ICPC Asia Pacific Championship</h1><div class="content"><p><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1938">补题链接</a>, <a href="/download/icpc/48/asia-pacific-championship/statements.pdf">题面</a>, <a href="/download/icpc/48/asia-pacific-championship/tutorial.pdf">官方题解</a></p>
+<p>题挺好的，猜结论还是要大胆一点，坚持训练！</p>
+<span id="more"></span>
+
+<table>
+<thead>
+<tr>
+<th align="center">ID</th>
+<th align="center">Difficulty (0-5)</th>
+<th align="center">Topic</th>
+<th align="center">Status</th>
+<th align="center">Code</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">A</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">B</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">C</td>
+<td align="center">2</td>
+<td align="center">Greedy, Implementation</td>
+<td align="center">Solved</td>
+<td align="center"><a href="/download/icpc/48/asia-pacific-championship/C.cpp">C.cpp</a></td>
+</tr>
+<tr>
+<td align="center">D</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">E</td>
+<td align="center">2</td>
+<td align="center">Constructive Algorithms</td>
+<td align="center">Solved</td>
+<td align="center"><a href="/download/icpc/48/asia-pacific-championship/E.cpp">E.cpp</a></td>
+</tr>
+<tr>
+<td align="center">F</td>
+<td align="center">3</td>
+<td align="center">Monotonic Queue</td>
+<td align="center">Upsolved</td>
+<td align="center"><a href="/download/icpc/48/asia-pacific-championship/F.cpp">F.cpp</a></td>
+</tr>
+<tr>
+<td align="center">G</td>
+<td align="center">3</td>
+<td align="center">Pigeonhole Principle, Bitset</td>
+<td align="center">Solved</td>
+<td align="center"><a href="/download/icpc/48/asia-pacific-championship/G.cpp">G.cpp</a></td>
+</tr>
+<tr>
+<td align="center">H</td>
+<td align="center">1</td>
+<td align="center">Greedy</td>
+<td align="center">Solved</td>
+<td align="center"><a href="/download/icpc/48/asia-pacific-championship/H.cpp">H.cpp</a></td>
+</tr>
+<tr>
+<td align="center">I</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">J</td>
+<td align="center">2</td>
+<td align="center">Shortest Path</td>
+<td align="center">Solved</td>
+<td align="center"><a href="/download/icpc/48/asia-pacific-championship/J.cpp">J.cpp</a></td>
+</tr>
+<tr>
+<td align="center">K</td>
+<td align="center">4</td>
+<td align="center">DSU on Tree, Segment Tree</td>
+<td align="center">Upsolved</td>
+<td align="center"><a href="/download/icpc/48/asia-pacific-championship/K.cpp">K.cpp</a></td>
+</tr>
+<tr>
+<td align="center">L</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">M</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<br>
+
+<h2 id="C-Bit-Counting-Sequence"><a href="#C-Bit-Counting-Sequence" class="headerlink" title="C. Bit Counting Sequence"></a>C. Bit Counting Sequence</h2><p>注意到每次进位都能确定数列中的一段，模拟即可。</p>
+<br>
+
+<h2 id="E-Duplicates"><a href="#E-Duplicates" class="headerlink" title="E. Duplicates"></a>E. Duplicates</h2><p>假设不合法的行数是 $x$ ，不合法的列数是 $y$ ，那么答案至少是 $\max(x,y)$ ，存在构造达到这个下界。</p>
+<p>矩阵内数字都在 $[1,n]$ 内，所以不合法的行列一定是 $n$ 的排列。</p>
+<p>每次选一个不合法的行，一个不合法的列，在交点位置改成这一行列其他位置有的某个数就行了。</p>
+<p>对于剩下的不合法的找一个合法的配对，分类讨论证明一定有解，然后暴力枚举交点换成谁即可。</p>
+<p>复杂度 $O(n^3)$ 。</p>
+<br>
+
+<h2 id="F-Forming-Groups"><a href="#F-Forming-Groups" class="headerlink" title="F. Forming Groups"></a>F. Forming Groups</h2><blockquote>
+<p>给定数列 $b_1,b_2,b_3,\dots,b_{n-1}$ ，选一个位置把 $x$ 插进去（有 $n$ 种不同的位置），形成一个新数列 $a$ 。</p>
+<p>然后选一个 $n$ 的因数 $k$ ，把 $a$ 分成 $k$ 组，$a_i$ 被分到第 $i\mod k + 1$ 组，记录第 $i$ 组的 $a$ 之和为 $w_i$ 。</p>
+<p>找一个放 $x$ 和选 $k$ 的方案，最小化 $\displaystyle \frac{\max w_i}{\min w_i}$ 。</p>
+</blockquote>
+<p>枚举 $k$ ，每个 $b_i$ 只有可能被分到第 $i\mod k + 1$ 组和第 $(i+1)\mod k + 1$ 组。</p>
+<p>枚举 $x$ 的位置，每次只会有两个组的 $w$ 受到影响，线段树维护单点修改查询全局 $\min,\max$ 。</p>
+<p>注意到随着枚举 $x$ 的位置，每次受影响的组的编号是连续的，可以把线段树换成单调队列。</p>
+<p>再注意到 $k$ 其实只需要枚举 $n$ 的质因子，这样只需要试最多 $7$ 个不同的数了。证明如下：</p>
+<p>如果把 $n$ 分成了某个合数 $k&#x3D;pq$ 组，证明分成 $p$ 组不会变差：</p>
+<p>相当于原来的 $pq$ 组每 $q$ 组合在一起，新的最小值 $\ge$ 原来最小值 $q$ 倍，新的最大值 $\le $ 旧的最大值 $q$ 倍。</p>
+<p>因此比值乘了一个不大于 $1$ 的值，不会变差。</p>
+<p>复杂度 $O(7\times n)$ 。</p>
+<br>
+
+<h2 id="G-Personality-Test"><a href="#G-Personality-Test" class="headerlink" title="G. Personality Test"></a>G. Personality Test</h2><blockquote>
+<p>给 $n$ 个长度都是 $m$ 的字符串，找两个字符串 $i,j$ ，使得两个字符串至少有 $k$ 个位置对应字符相等。</p>
+<p>有多个解的时候先最小化 $j$ ，再最大化 $i$ 。数据范围：$n\le 5000,m\le 3000,k\le 5$</p>
+</blockquote>
+<p>官方做法是鸽巢原理。考虑每个字符串对有多少个位置一样，最开始都设置成 $0$ 。</p>
+<p>每次找到一个位置一对字符串相等，就把他们的答案 $+1$ 。</p>
+<p>我们最多加 $(k-1)\times{n\choose 2} + 1$ 次，就一定会有一对的答案 $\ge k$ 。</p>
+<p>枚举 $j$ ，然后枚举每个位置，把这个位置上字符相同的那些 $i$ 贡献 $+1$ 。</p>
+<p>总复杂度 $O(kn^2+nm)$ 。</p>
+<hr>
+<p>有个暴力的做法可以求出所有符合要求的字符串对。</p>
+<p>每次枚举一个当前的字符串 $j$，设 $S_{pos,t}$ 表示只看前 $pos$ 位，有至少 $t$ 个位置和当前串一致的字符串下标集。</p>
+<p>每次转移形如 $S_{pos+1,t}&#x3D;S_{pos,t}\cup (S_{pos,t-1}\cap T_{pos+1,str[j][pos]})$ ，其中 $T$ 表示这个位置和当前字符一致的字符串下标集。最终答案就是 $S_{m,k}$ 。</p>
+<p>使用 <code>bitset</code> 加速这一过程，复杂度 $O(n^2mk&#x2F;\omega)$ 。</p>
+<br>
+
+<h2 id="H-Pho-Restaurant"><a href="#H-Pho-Restaurant" class="headerlink" title="H. Pho Restaurant"></a>H. Pho Restaurant</h2><p>贪心，每桌都移走较少的那种就行。所有桌移走的颜色一致时特殊讨论下。</p>
+<br>
+
+<h2 id="J-There-and-Back-Again"><a href="#J-There-and-Back-Again" class="headerlink" title="J. There and Back Again"></a>J. There and Back Again</h2><p>首先证明一条肯定是最短路：</p>
+<p>否则两条都不是最短路且两条边集不同，那么把其中一条换成最短路依旧满足边集不同。</p>
+<p>因此先找出最短路，然后建立分层图，让第二条路经强制走一条不在最短路中的边就行了。</p>
+<br>
+
+<h2 id="K-Tree-Quiz"><a href="#K-Tree-Quiz" class="headerlink" title="K. Tree Quiz"></a>K. Tree Quiz</h2><p>首先注意到这是个 $n$ 进制的三位数。因此 $x$ 可以直接从下标算出，$x&#x3D;\lceil\frac{k}{n}\rceil$。</p>
+<p>接下来求 $lca$ 转化成当前点到根的链上，每个点有一个权值（自己的子树大小减去对应儿子的子树大小），然后按照编号大小排序，找前缀和为某个值的位置，DFS 的同时线段树维护链上的点及其 size 信息，然后线段树上二分即可，复杂度 $O(n\log n)$。</p>
+<p>接下来求 $y$ 就转化成了，询问 $lca$ 子树中，除了 $x$ 所在的这个子树以外的所有点中编号第 $k$ 大的是谁，可以 DSU on Tree + 线段树维护，每次询问线段树上二分。复杂度 $O(n\log^2 n)$ 。</p>
+<p>总复杂度 $O(n\log^2 n)$ 。</p>
+<hr>
+<p>对于第二部分，如果改成使用主席树在 DFS 序上维护节点编号集，每次从子树中扣掉一个儿子的子树，就变成了 DFS 序上的两段，四个节点并行在主席树上跑即可，这样总复杂度可以降低到 $O(n\log n)$ 。</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>The 2024 ICPC Asia Pacific Championship</p><p><a href="https://blog.gyx.me/contest/icpc/48/asia-pacific-championship/">https://blog.gyx.me/contest/icpc/48/asia-pacific-championship/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Yixiong Gao</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2024-03-03</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2024-03-07</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/Segment-Tree/">Segment Tree</a><a class="link-muted mr-2" rel="tag" href="/tags/Shortest-Path/">Shortest Path</a><a class="link-muted mr-2" rel="tag" href="/tags/Pigeonhole-Principle/">Pigeonhole Principle</a><a class="link-muted mr-2" rel="tag" href="/tags/DSU-on-Tree/">DSU on Tree</a><a class="link-muted mr-2" rel="tag" href="/tags/Monotonic-Queue/">Monotonic Queue</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/contest/codeforces/1935/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Codeforces Round 932 (Div. 2)</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/contest/codeforces/1932/"><span class="level-item">Codeforces Round 927 (Div. 3)</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><!--!--><div class="column column-right is-4-tablet is-4-desktop is-4-widescreen  order-3"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.gif" alt="Yixiong Gao"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Yixiong Gao</p><p class="is-size-6 is-block">Christian, Student</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Hong Kong SAR, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">21</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">7</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">12</p></a></div></div></nav></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#C-Bit-Counting-Sequence"><span class="level-left"><span class="level-item">C. Bit Counting Sequence</span></span></a></li><li><a class="level is-mobile" href="#E-Duplicates"><span class="level-left"><span class="level-item">E. Duplicates</span></span></a></li><li><a class="level is-mobile" href="#F-Forming-Groups"><span class="level-left"><span class="level-item">F. Forming Groups</span></span></a></li><li><a class="level is-mobile" href="#G-Personality-Test"><span class="level-left"><span class="level-item">G. Personality Test</span></span></a></li><li><a class="level is-mobile" href="#H-Pho-Restaurant"><span class="level-left"><span class="level-item">H. Pho Restaurant</span></span></a></li><li><a class="level is-mobile" href="#J-There-and-Back-Again"><span class="level-left"><span class="level-item">J. There and Back Again</span></span></a></li><li><a class="level is-mobile" href="#K-Tree-Quiz"><span class="level-left"><span class="level-item">K. Tree Quiz</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-03-07T02:00:00.000Z">2024-03-07</time></p><p class="title"><a href="/contest/codeforces/1935/">Codeforces Round 932 (Div. 2)</a></p><p class="categories"><a href="/categories/Contest/">Contest</a> / <a href="/categories/Contest/Codeforces/">Codeforces</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-03-02T16:00:00.000Z">2024-03-03</time></p><p class="title"><a href="/contest/icpc/48/asia-pacific-championship/">The 2024 ICPC Asia Pacific Championship</a></p><p class="categories"><a href="/categories/Contest/">Contest</a> / <a href="/categories/Contest/ICPC/">ICPC</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-02-19T02:00:00.000Z">2024-02-19</time></p><p class="title"><a href="/contest/codeforces/1932/">Codeforces Round 927 (Div. 3)</a></p><p class="categories"><a href="/categories/Contest/">Contest</a> / <a href="/categories/Contest/Codeforces/">Codeforces</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-02-17T16:00:00.000Z">2024-02-18</time></p><p class="title"><a href="/contest/atcoder/abc/341/">AtCoder Beginner Contest 341</a></p><p class="categories"><a href="/categories/Contest/">Contest</a> / <a href="/categories/Contest/AtCoder/">AtCoder</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-02-14T07:00:00.000Z">2024-02-14</time></p><p class="title"><a href="/contest/codeforces/1931/">Codeforces Round 925 (Div. 3)</a></p><p class="categories"><a href="/categories/Contest/">Contest</a> / <a href="/categories/Contest/Codeforces/">Codeforces</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2024/03/"><span class="level-start"><span class="level-item">March 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/02/"><span class="level-start"><span class="level-item">February 2024</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/01/"><span class="level-start"><span class="level-item">January 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/12/"><span class="level-start"><span class="level-item">December 2023</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/11/"><span class="level-start"><span class="level-item">November 2023</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/09/"><span class="level-start"><span class="level-item">September 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/07/"><span class="level-start"><span class="level-item">July 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/11/"><span class="level-start"><span class="level-item">November 2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">Colin&#039;s Blog</a><p class="is-size-7"><span>&copy; 2024 Yixiong Gao</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Contact Me" href="mailto:yixionggao@outlook.com"><i class="fa-regular fa-envelope"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'folded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
