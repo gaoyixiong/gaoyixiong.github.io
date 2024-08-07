@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="robots" content="noindex"><meta><title>Category: Math - Colin&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Colin&#039;s Blog"><meta name="msapplication-TileImage" content="/img/logo.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Colin&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="Colin&#039;s Blog"><meta property="og:url" content="https://blog.yixionggao.com/"><meta property="og:site_name" content="Colin&#039;s Blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://blog.yixionggao.com/img/og_image.png"><meta property="article:author" content="Yixiong Gao"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://blog.yixionggao.com/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.yixionggao.com"},"headline":"Colin's Blog","image":["https://blog.yixionggao.com/img/og_image.png"],"author":{"@type":"Person","name":"Yixiong Gao"},"publisher":{"@type":"Organization","name":"Colin's Blog","logo":{"@type":"ImageObject","url":{"text":"Colin's Blog"}}},"description":""}</script><link rel="icon" href="/img/logo.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/monokai-sublime.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">Colin&#039;s Blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" target="_blank" rel="noopener" href="http://yixionggao.com">Homepage</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/friends">Friends</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li><a href="/categories/Algorithm/">Algorithm</a></li><li class="is-active"><a href="#" aria-current="page">Math</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-07-31T16:00:00.000Z" title="1/8/2024 上午12:00:00">2024-08-01</time></span><span class="level-item"><a class="link-muted" href="/categories/Algorithm/">Algorithm</a><span> / </span><a class="link-muted" href="/categories/Algorithm/Math/">Math</a></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/algorithm/gf1/">Generating Function (I)</a></p><div class="content"><p>形式幂级数 $A(x)&#x3D;\sum_{i \geq 0} a_i x^i$ ，其中 $a_i \in K, K$ 是一个域。</p>
+<p>形式幂级数在 $+,-,\times$ 下形成一个环（定义类比多项式）。</p>
+<p>记形式幂级数或多项式 $A(x)$ 的 $x^n$ 项的系数为 $\left[x^n\right] A(x)$ 。</p>
+<h2 id="Ordinary-generating-function-OGF"><a href="#Ordinary-generating-function-OGF" class="headerlink" title="Ordinary generating function (OGF)"></a>Ordinary generating function (OGF)</h2><p>一个数列 $\{a_n\}$ 对应的常生成函数 (Oridinary Generating Function) 为 $A(x)&#x3D;\sum_{n \geq 0} a_n x^n$ 。</p>
+<p>到计数问题中，$a_nx^n$ 中指数 $n$ 代表选择 $n$ 个物品，系数 $a_n$ 代表选 $n$ 个物品的方案数。</p>
+<blockquote>
+<p>设 $S&#x3D;\{a_1, a_2, \ldots, a_k\}$，且 $a_i$ 可以取的次数的集合为 $M_i$，常生成函数 $F_i(x)&#x3D;\sum_{u \in M_i} x^u$。</p>
+<p>则从 $S$ 中取 $n$ 个元素组成集合的方案数 $g(n)$ 的常生成函数 $G(x)&#x3D;\sum_{i \geq 0} g(i) x^i$，满足<br>$$<br>G(x)&#x3D;F_1(x) F_2(x) \ldots F_k(x)<br>$$</p>
+</blockquote>
+<p>证明从多项式乘法对应的系数相乘，指数相加的角度理解即可。</p>
+<p>形式幂级数 $A(x)$ 的逆元 $B(x)$ 满足 $A(x) B(x)&#x3D;1$，通常用来化简生成函数相乘。</p>
+<p>因为两个多项式的乘积常数项只能来自两个多项式的常数项，因此逆元存在的条件是 $\left[x^0\right] A(x) \neq 0$ 。</p>
+<p>暴力求多项式的逆元直接做多项式除法即可，注意逆元可能是有穷项的，也可能是无穷项的。</p>
+<blockquote>
+<ul>
+<li>$A(x)&#x3D;1+x+x^2+\ldots$ 和 $B(x)&#x3D;1-x$, 即 $\frac{1}{1-x}&#x3D;\sum_{i \geq 0} x^i$</li>
+<li>$A(x)&#x3D;\binom{k-1}{0}+\binom{k}{1} x+\binom{k+1}{2} x^2+\binom{k+2}{3} x^3+\ldots$ 和 $B(x)&#x3D;(1-x)^k$, 即 $\frac{1}{(1-x)^k}&#x3D;\sum_{i \geq 0}(\stackrel{i+k-1}{i}) x^i$</li>
+</ul>
+</blockquote>
+<p>第一个可以对 $x$ 进行换元。</p>
+<p>第二个只需要证明 $A(x)&#x3D;(1+x+x^2+\cdots)^k$ 即可，考虑 $[x^n] (1+x+x^2+\cdots)^k$ 的含义，相当于 $n$ 个球放入 $k$ 个框，球没有编号，框有编号。因此方案数插板是 ${k-1+n\choose n}$ 恰好对应于 $[x^n]A(x)$ 。</p>
+<p>有限项的逆元可以配形如 $(1-x)$ 的多项式乘上去。</p>
+<p>例题：[CF451E] Devu and Flowers, [CEOI2004] Sweets</p>
+<blockquote>
+<p>递推关系：从数列的递推公式导出生成函数进而得到通项。</p>
+<p>写出来生成函数 $A(x)$，对系数使用递推公式展开，将两侧都整理成和 $A(x)$ 相关的形式，解方程。</p>
+</blockquote>
+<h2 id="Exponential-generating-function-EGF"><a href="#Exponential-generating-function-EGF" class="headerlink" title="Exponential generating function (EGF)"></a>Exponential generating function (EGF)</h2><p>一个数列 $\{a_n\}$ 对应的指数生成函数 (Exponential Generating Function) 为 $A(x)&#x3D;\sum_{n \geq 0} a_n \frac{x^n}{n!}$ 。</p>
+<p>到计数问题中，$a_nx^n$ 中指数 $n$ 代表选择 $n$ 个物品，系数 $a_n$ 代表选 $n$ 个物品排成一列的方案数。</p>
+<blockquote>
+<p>设 $S&#x3D;\{a_1, a_2, \ldots, a_k\}$，且 $a_i$ 可以取的次数的集合为 $M_i$，指数生成函数 $F_i(x)&#x3D;\sum_{u \in M_i} \frac{x^u}{u!}$ 。</p>
+<p>则从 $S$ 中取 $n$ 个元素<strong>排成一列</strong>的方案数 $g(n)$ 的指数生成函数 $G(x)&#x3D;\sum_{i \geq 0} g(i) \frac{x^i}{i!}$，满足<br>$$<br>G(x)&#x3D;F_1(x) F_2(x) \ldots F_k(x)<br>$$</p>
+</blockquote>
+<p>证明考虑每个元素分别取的次数是 $b_1,b_2,\cdots,b_k$，则使用多重集的排列数：<br>$$<br>g(n)&#x3D;\sum_{b_1+b_2+\cdots+b_k&#x3D;n} \frac{n!}{b_1!b_2!\cdots b_n!}<br>$$</p>
+</div></article></div></div><!--!--><div class="column column-right is-4-tablet is-4-desktop is-4-widescreen  order-3"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.gif" alt="Yixiong Gao"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Yixiong Gao</p><p class="is-size-6 is-block">Ph.D Student in TCS</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Hong Kong SAR, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">26</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">9</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">16</p></a></div></div></nav></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-07-31T16:00:00.000Z">2024-08-01</time></p><p class="title"><a href="/algorithm/gf1/">Generating Function (I)</a></p><p class="categories"><a href="/categories/Algorithm/">Algorithm</a> / <a href="/categories/Algorithm/Math/">Math</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-04-22T02:00:00.000Z">2024-04-22</time></p><p class="title"><a href="/contest/codeforces/1957/">Codeforces Round 940 (Div. 2)</a></p><p class="categories"><a href="/categories/Contest/">Contest</a> / <a href="/categories/Contest/Codeforces/">Codeforces</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-03-25T16:00:00.000Z">2024-03-26</time></p><p class="title"><a href="/summary/colin-and-eva/">Training Records - Colin and Eva</a></p><p class="categories"><a href="/categories/Summary/">Summary</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-03-10T16:00:00.000Z">2024-03-11</time></p><p class="title"><a href="/contest/atcoder/arc/173/">AtCoder Regular Contest 173</a></p><p class="categories"><a href="/categories/Contest/">Contest</a> / <a href="/categories/Contest/AtCoder/">AtCoder</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-03-07T02:00:00.000Z">2024-03-07</time></p><p class="title"><a href="/contest/codeforces/1935/">Codeforces Round 932 (Div. 2)</a></p><p class="categories"><a href="/categories/Contest/">Contest</a> / <a href="/categories/Contest/Codeforces/">Codeforces</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2024/08/"><span class="level-start"><span class="level-item">August 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/04/"><span class="level-start"><span class="level-item">April 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/03/"><span class="level-start"><span class="level-item">March 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/02/"><span class="level-start"><span class="level-item">February 2024</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/01/"><span class="level-start"><span class="level-item">January 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/12/"><span class="level-start"><span class="level-item">December 2023</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/11/"><span class="level-start"><span class="level-item">November 2023</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/09/"><span class="level-start"><span class="level-item">September 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/07/"><span class="level-start"><span class="level-item">July 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/11/"><span class="level-start"><span class="level-item">November 2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">Colin&#039;s Blog</a><p class="is-size-7"><span>&copy; 2024 Yixiong Gao</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Contact Me" href="mailto:yixionggao@outlook.com"><i class="fa-regular fa-envelope"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'folded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><!--!--><!--!--><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
